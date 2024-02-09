@@ -1,5 +1,6 @@
 const readline = require('readline');//importing the readline module
 const EventEmitter = require('events');//importing the events module
+const { emit } = require('process');
 
 const rl = readline.createInterface({
     input:process.stdin,
@@ -76,6 +77,9 @@ event.on("menu",async ()=>{
     console.log("\n\t\t1-If you want add contact enter \"Add\".\n\t\t2-If you want to search for a contact enter \"Search\".\n\t\t3-Enter \"Display\" to view the contact list.\n\t\t4-Enter \"Exit\" to exit.");
 })
 
+event.on("exit",()=>{
+    rl.close();
+})
 //process contact function
 const processContacts = async ()=>{
     event.emit('menu');
@@ -95,7 +99,8 @@ const processContacts = async ()=>{
             case "exit":
                 check = true;
                 console.log("Application is closed");
-                rl.close();
+                //rl.close();
+                event.emit("exit");
                 break;
             default:
                 console.log("You choice is wrong !! Try Again");
