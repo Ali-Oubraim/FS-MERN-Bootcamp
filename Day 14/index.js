@@ -62,7 +62,7 @@ const getCityInfo = async ()=>{
             //console.log("City Found !",foundCity);
             const{lat,lng}=foundCity;
             const content = await fetchData(lat,lng);
-            // console.log(lat,lng);
+            console.log(lat,lng);
             const cityInfo = `Current Weather for ${foundCity.name} is ${content}`;
             await createCityFile(foundCity.name,cityInfo);
             // console.log(cityInfo);
