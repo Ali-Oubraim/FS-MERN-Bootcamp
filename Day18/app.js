@@ -4,34 +4,28 @@ const app = express();
 
 app.use(express.json());
 app.use(Loggin);
-app.use(createError);
-app.use(ErrorHandling);
+// app.use(createError);
 
 
 let products = [
-    { id: 1, name: 'iPhone 12 Pro', price: 1099.99 },
-    { id: 2, name: 'Samsung Galaxy S21', price: 999.99 },
-    { id: 3, name: 'Sony PlayStation 5', price: 499.99 },
-    { id: 4, name: 'MacBook Pro 16', price: 2399.99 },
-    { id: 5, name: 'DJI Mavic Air 2', price: 799.99 },
+    
 ];
 
-function createError(req,res,next) {
-    if (req.url!=='/products') {
-        const err = {Message:"EndPoint Not Found !!"};
-        // res.status(404).json(err);
-        // console.log("Somthing Went Wrong !!");
-        return err;
-    }else{
-        next();
-    }
-}
+// function createError(req,res,next) {
+//     if (req.url!=='/products') {
+//         const err = {Message:"EndPoint Not Found !!"};
+//         // res.status(404).json(err);
+//         // console.log("Somthing Went Wrong !!");
+//         return err;
+//     }else{
+//         next();
+//     }
+// }
 
-function ErrorHandling(err,req,res,next){
-    // console.log(err.status(500));
-     if (req.url!=='/products') {
-        res.status(500).send("Error Somthing Went Wrong !!");
-    }
+function errorHandler (err, req, res, next) {
+    console.log(err);
+    res.status(400).json({err:err.message});
+    
 }
 
 function Loggin(req,res,next){
@@ -45,12 +39,17 @@ function Loggin(req,res,next){
     next();
 }
 
+app.get('/products',(req,res, next)=>{
+    // console.log(req.params.products);
+    try {
+        if (products.length===0) {
+            throw new Error ("Somthing Went Wrong !!!");
+        }
+        res.json(products);
 
-
-app.get('/products',(req,res)=>{
-    console.log(req.params.products);
-    res.json(products);
-    // res.status(500).send("Somthing Went Wrong !!!");
+    } catch (error) {
+        next(error)
+    }
 })
 
 app.get('/products/search',(req,res)=>{
@@ -146,6 +145,9 @@ app.delete('/products/:id',(req,res)=>{
         res.json({"Error":"Product not found !"});
     }
 })
+
+app.use(errorHandler);
+
 
 
 app.listen(3000,()=>{

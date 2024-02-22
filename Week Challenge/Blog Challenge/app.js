@@ -1,55 +1,17 @@
+/**
+ * --I Finish the ATM Challenge and i push it in GitHub
+ * --and after that i finish quizes that i had to finish and the evaluation too
+ * --I Start the Blog Challenge and i try to finish it today Inchaalah
+ */
 const express = require('express');
-const data = require('./blogs.json');
-const blog = require('./Models/blog')
-
-const posts = data;
-
+const blogRouter = require('./Routes/blogRoutes');
+const middlewares = require('./Miidlewares/Logging');
 const app = express();
 
 app.use(express.json());
-
-app.get('/blogs',(req,res)=>{
-    try {
-        
-        if (req.url==='/blogs') {
-            res.json(posts);
-        } else {
-            res.status(500).send("Error : Endpoint Not Found!!");
-        }
-    } catch (error) {
-        // res.json({"Error":error});
-    }
-})
-
-app.get('/blogs/:id',(req,res)=>{
-    try {
-        if (req.params.id) {
-            const id = req.params.id;
-            // console.log(typeof(req.params.id));
-            const post = posts.find((p)=>p.id===id);
-            // console.log(post);
-            if (post) {
-                res.json(post);
-            } else {
-                res.json({Error:"Post not Found !!"});
-            }
-        } else {
-            res.status(500).send("Error : Endpoint Not Found!!");
-        }
-    } catch (error) {
-        // res.json({"Error":error});
-    }
-})
-
-app.post('/blog',(req ,res ) => {
-    try {
-        
-    } catch (error) {
-        console.log(error);
-    }
-})
-// console.log(posts);
+app.use(middlewares.Loggin)
+app.use('/blogs',blogRouter);
 
 app.listen(9000,()=>{
-    console.log('Server Running..');
+    console.log('Server For Blogs Running..');
 })
