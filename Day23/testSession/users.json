@@ -1,0 +1,26 @@
+[
+  {
+    "username": "Ali oubraim",
+    "password": "$2b$05$Tx6cWzAXrcHRm88f0.X8Au1PwbNtCbPXYCXCEJS6M4uM9/BXLvpOq",
+    "type": "admin"
+  },
+  {
+    "username": "Normal User",
+    "password": "$2b$05$bQwK.eEJgI9O1Dvpa6WrcuZyoKel8.KTl0RQW7cuc//TfhHDeIFS6",
+    "type": "user"
+  },
+  {
+    "username": "Admin User",
+    "password": "$2b$05$rPhFOuBKKszlb5yxwwRT0O0.8cIZD9Ez500vj5LMBJyTQxKNJPlEe",
+    "type": "admin"
+  },
+  {
+    "username": "SomeUser",
+    "password": "$2b$05$9kOZBWE1KDzOnvye.eQNruHBVYxuQ7MMlRqcuIow3WsXHcuMOo4gi"
+  },
+  {
+    "username": "new user",
+    "password": "$2b$05$V44mWas5rWh2oxVetU8LjuFqNnanCc4WcriwNUQqqyLNTRd9bcjza",
+    "type": "user"
+  }
+]
