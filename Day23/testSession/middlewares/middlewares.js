@@ -1,40 +1,31 @@
-function isAdmin(req, res, next) {
-  if (req.cookies.currentUser) {
-    const { currentUser } = req.cookies;
-    if (currentUser.type === "admin") {
-      next();
-    } else {
-      return res
-        .status(400)
-        .json({ Message: `You Are Not Allowed To Be Here !!` });
-    }
-  } else {
-    return res
-      .status(400)
-      .json({ Message: `You Are Not Authenticated Login First !!` });
-  }
-}
-
+const { body, validationResult } = require("express-validator");
 function isAuthenticated(req, res, next) {
-  if (req.cookies.currentUser) {
+  if (req.session.isAuth) {
     next();
   } else {
-    return res
-      .status(400)
-      .json({ Message: `You Are Not Authenticated Login First auth !!` });
+    res.redirect("/login");
   }
 }
 
-function logging(req, res, next) {}
+const inputValidation=()=> {
+  return [
+    body("username").notEmpty().isLength({ min: 5 }).escape(),
+    body("password").notEmpty().isLength({ min: 6 }).escape(),
 
+    (req, res, next) => {
+      const errors = validationResult(req);
+
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      }
+      next();
+    }
+  ];
+}
 function errorHandler(err, req, res, next) {
   if (err) {
-    res
-      .status(500)
-      .json({ Message: `Oops ,Somthing Went Wrong !! ${err.stack}` });
-  } else {
-    next();
+    throw new Error(err);
   }
+  next();
 }
-
-module.exports = { isAdmin, isAuthenticated, errorHandler };
+module.exports = { isAuthenticated, inputValidation, errorHandler };

@@ -22,5 +22,17 @@
     "username": "new user",
     "password": "$2b$05$V44mWas5rWh2oxVetU8LjuFqNnanCc4WcriwNUQqqyLNTRd9bcjza",
     "type": "user"
+  },
+  {
+    "id": 1652009011697,
+    "username": "Younes",
+    "password": "$2b$10$agiNBuYdqXbX6FYt1jva.ObuWKr1eehdm5Z/Kv703UYxgSQE9Pz.m",
+    "role": "admin"
+  },
+  {
+    "id": 290782856815,
+    "username": "a",
+    "password": "$2b$10$cMSSbohdmJKaINjge/DzEOcmT3msVnyIJbEFlfopVOHonDjOb8p66",
+    "role": "admin"
   }
 ]
