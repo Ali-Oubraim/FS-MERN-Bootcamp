@@ -69,6 +69,7 @@ app.post(
       res.status(404).json({ warning: "Password Inccorect !" });
       return;
     }
+    
     const token = jwt.sign({ username: username }, "Im-Ali", {
       expiresIn: "30min",
     });
