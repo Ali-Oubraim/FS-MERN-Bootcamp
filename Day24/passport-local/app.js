@@ -3,8 +3,8 @@ const express = require("express");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const bcrypt = require("bcrypt");
-const passport =require('passport');
-const local =require('./strategies/local');
+const passport = require("passport");
+const local = require("./strategies/local");
 
 const USERS = require("./users.json");
 const {
@@ -28,23 +28,27 @@ app.use(
     saveUninitialized: false,
   })
 );
-app.use(passport.initialize());
-app.use(passport.session())
+app.use(passport.initialize())
+app.use(passport.session());
 app.use(errorHandler);
 
 app.get("/", (req, res) => {
   res.render("home");
 });
 
-app.get("/login",(req, res) => {
+app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.post("/login", local.authenticate("local"),(req, res) => {
-  
-  // console.log(req.cookies);
-  res.redirect("/protected");
-});
+app.post(
+  "/login",
+  inputValidation(),
+  local.authenticate("local"),
+  (req, res) => {
+    // console.log(req.cookies);
+    res.redirect("/protected");
+  }
+);
 
 app.get("/register", (req, res) => {
   res.render("register");
@@ -64,9 +68,9 @@ app.post("/register", inputValidation(), async (req, res) => {
 });
 
 app.get("/protected", (req, res) => {
-  // console.log('inside Protected');
-  // console.log(req.user);
-  currentUser = USERS.find(u=>u.id===req.user)
+  console.log('inside Protected');
+  console.log(req.user);
+  currentUser = USERS.find((u) => u.id === req.user);
   username = currentUser.username;
   res.render("protected");
   // console.log(req.cookies);
@@ -78,6 +82,7 @@ app.post("/logout", isAuthenticated, (req, res) => {
     if (err) throw err;
     res.redirect("/");
   });
+  req.logOut
 });
 
 async function save(data) {
