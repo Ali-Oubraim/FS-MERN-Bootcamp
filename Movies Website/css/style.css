@@ -1,0 +1,332 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  font-family: "Ubuntu Mono", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+a {
+  color: rgb(185, 214, 224);
+  text-decoration: none;
+}
+body {
+  overflow: auto;
+  background-image: linear-gradient(#01022d, black);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  height: 1300px;
+}
+.container {
+  background-image: linear-gradient(
+      to right,
+      #01022de5 30%,
+      rgba(0, 0, 0, 0.396)
+    ),
+    url(../sources/images/bg.jpg);
+  width: 98%;
+  height: 80vh;
+  transition-duration: 4s;
+}
+.container:hover {
+  background-image: linear-gradient(to right, #01022de5 30%, transparent),
+    url(../sources/images/bg.jpg);
+}
+
+header,
+.landing-container header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(to bottom, #01022d, rgba(0, 0, 0, 0.32));
+}
+.logo {
+  font-size: 30px;
+  text-transform: uppercase;
+}
+header ul {
+  padding: 5px;
+  width: 90%;
+  align-items: center;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+header ul li a {
+  padding: 4px;
+  transition: 0.3s;
+}
+header ul li a:hover {
+  border-bottom: 1.5px solid rgb(185, 214, 224);
+}
+
+/* Style Form */
+.forms {
+  height: 30px;
+
+  padding: 5px;
+}
+.forms .search {
+  flex: 3 1 0;
+  height: 20px;
+}
+.btn {
+  color: white;
+  font-weight: 500;
+  background: linear-gradient(
+    to left,
+    blueviolet,
+    rgb(158, 54, 255),
+    rgb(101, 49, 150)
+  );
+  border: none;
+  border: 1px solid rgb(255, 255, 255);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.forms .search .btn-search {
+  width: 80px;
+  height: 20px;
+  position: relative;
+}
+.forms .search .input-search {
+  color: aliceblue;
+  height: 20px;
+  background-image: linear-gradient(#01022d, rgba(0, 0, 0), #01022d);
+  border: none;
+  border: 1px solid blueviolet;
+  outline: none;
+  position: relative;
+  transition: 0.5s;
+}
+.forms .search .input-search:focus {
+  background: linear-gradient(
+    to left,
+    blueviolet,
+    rgb(158, 54, 255),
+    rgb(101, 49, 150)
+  );
+  border: 1px solid rgb(255, 255, 255);
+}
+.btn:hover {
+  background-image: linear-gradient(#01022d, rgba(0, 0, 0), #01022d);
+  border: none;
+  border: 1px solid blueviolet;
+}
+.forms select {
+  color: aliceblue;
+  background-color: #01022d;
+  border: 1px solid blueviolet;
+  flex: 0 1 0;
+  margin-right: 8px;
+  outline: none;
+  transition: 0.5s;
+}
+.forms select:focus {
+  color: aliceblue;
+  background-color: blueviolet;
+  border: 1px solid rgb(255, 255, 255);
+}
+.forms .btn-subscribe {
+  flex: 1 0 0;
+  width: 10px;
+}
+header .form {
+  width: 40vw;
+  display: flex;
+}
+/* Style Content */
+.content {
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 40vh;
+  margin-bottom: 120px;
+}
+.content h1 {
+  background-color: rgba(255, 255, 255);
+  padding: 10px;
+  color: blueviolet;
+  text-transform: uppercase;
+  border: 2px solid blueviolet;
+}
+.content p {
+  font-size: 30px;
+  font-weight: 400;
+  text-transform: capitalize;
+  padding: 10px;
+  text-align: center;
+}
+.container .btn-stream {
+  padding: 6px;
+  width: 150px;
+}
+.first-box {
+  display: flex;
+  justify-content: space-between;
+}
+.first-box h3 {
+  padding: 10px;
+  color: aliceblue;
+  border-right: 2px solid blueviolet;
+}
+.first-box a {
+  padding: 10px;
+  color: aliceblue;
+  transition: 1s;
+}
+.first-box a::after {
+  content: " >";
+  font-weight: bold;
+}
+.first-box a:hover {
+  border-bottom: 2px solid blueviolet;
+}
+.boxes {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+.boxes article {
+  position: relative;
+  width: 220px;
+  height: fit-content;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  overflow: hidden;
+}
+.boxes article .img img {
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+}
+.boxes article .img img:hover {
+  transform: scale(1.05);
+}
+.boxes article p,
+span {
+  color: aliceblue;
+}
+.boxes article .movie-info {
+  z-index: 999;
+  padding: 10px;
+  border: 1px solid blueviolet;
+  border-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.boxes article .movie-info > div {
+  text-align: center;
+}
+.boxes article .movie-info > .rating {
+  color: gold;
+}
+.boxes article .movie-info > .rating::before {
+  content: "\01F525";
+}
+.boxes article .movie-title {
+  width: 100%;
+  text-align: center;
+  box-shadow: 2px 2px 5px black;
+  background-color: #01022d79;
+  padding: 10px;
+  position: absolute;
+  top: 0px;
+}
+.boxes article .btn-watch {
+  padding: 6px;
+  font-weight: lighter;
+  font-size: 15px;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+/* style footer */
+.footer .top {
+  z-index: 9999;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 9px;
+  background-color: blueviolet;
+  color: whitesmoke;
+  border: 2px solid whitesmoke;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  rotate: 270deg;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.footer {
+  position: relative;
+  bottom: 0;
+}
+.footer footer {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top: 2px solid blueviolet;
+}
+.footer .footer-logo {
+  padding: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.footer .social-media {
+  height: 5em;
+  color: lightblue;
+  padding: 5px;
+}
+.footer .social-media h4 {
+  padding: 10px 4px;
+  text-align: center;
+}
+.footer .social-media a {
+  padding: 6px;
+}
+.footer .links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.footer .links ul a:hover {
+  text-decoration: underline lightblue;
+}
+
+.footer .download-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: aliceblue;
+}
+.footer .download-links h4 {
+  padding: 5px;
+  margin: 5px 0;
+}
+.footer .copyright {
+  text-align: center;
+  color: rgb(133, 165, 192);
+  padding: 5px;
+  background-color: #01022d;
+}
+.footer .copyright p {
+  padding: 6px;
+}
+.footer .copyright ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+}
+.footer .copyright ul a:hover {
+  text-decoration: underline lightblue;
+}

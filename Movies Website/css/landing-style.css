@@ -1,0 +1,585 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+/* 
+Palett #845EC2 move, #4B4453 darkgrey, #B0A8B9 lightgrey, #C34A36 orang, #FF8066 lightorang
+new palett : #DAEBF2 lightgrey, #845EC2 move , #3286A0 lightgreen
+*/
+* {
+  font-family: "Ubuntu Mono", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #daebf2;
+}
+/* Style Navbar */
+header {
+  display: flex;
+  justify-content: space-around;
+  background: #3286a0;
+  align-items: center;
+  padding: 8px 0px;
+}
+header .logo a,
+footer .footer-logo {
+  width: 20%;
+  padding: 10px;
+  color: #ff8066;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 30px;
+}
+header nav {
+  width: 40%;
+}
+header nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 20px;
+}
+header nav ul a {
+  text-decoration: none;
+  color: #daebf2;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 9px;
+  transition: 0.6s;
+}
+header nav ul a:hover {
+  color: #ff8066;
+}
+header .search-form {
+  width: 30%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+header .search-form input {
+  height: 25px;
+  background-color: #daebf2;
+  outline: none;
+  border: 2px solid #845ec2;
+}
+
+header .search-form .btn,
+header .lang-form .btn {
+  height: 25px;
+  width: 90px;
+  background-color: #845ec2;
+  color: #daebf2;
+  border: 1px solid #daebf2;
+  cursor: pointer;
+  transition: 0.5s;
+}
+header .btn:hover {
+  background-color: #6d44b0;
+  transform: scale(1.01);
+}
+header .lang-form {
+  width: 15%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .lang-form select {
+  width: 50px;
+  height: 25px;
+  background-color: #daebf2;
+  outline: none;
+  border: 2px solid #845ec2;
+}
+
+/* Style The first Section */
+main .first-section {
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+}
+main .first-section .video {
+  height: 90vh;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+}
+main .first-section video {
+  height: 100%;
+  width: 100vw;
+  transform: scale(1.5);
+}
+main .first-article {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: #daebf2;
+}
+main .first-article h1 {
+  padding: 10px;
+  font-size: xx-large;
+}
+main .first-article h1 a {
+  color: #daebf2;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+main .first-article .info {
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: bold;
+}
+main .first-article span {
+  border-bottom: 2px solid #ff8066;
+}
+main .first-article p {
+  text-align: center;
+  padding: 5px;
+  margin: 10px 5px;
+  text-transform: capitalize;
+  font-weight: lighter;
+}
+main .first-article .links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+main .first-article .links .btn,
+.hero-section .content .btn-stream {
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: #daebf2;
+  text-decoration: none;
+  background-color: #ff8066;
+  padding: 10px;
+  border-radius: 10%;
+  border: 1px solid #daebf2;
+  cursor: pointer;
+}
+main .squar {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background-color: #845ec2;
+  opacity: 0.5;
+  rotate: 45deg;
+  left: -490px;
+  z-index: -1;
+  border-radius: 10%;
+  box-shadow: 8px 2px 14px #daebf2;
+}
+
+/* Style Movies Cards */
+main .main-section {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main section .head {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 70%;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 40px;
+  border-bottom: 2px solid #3286a0;
+}
+main section .head .new-rlease h4,
+.Trending h4 {
+  padding: 5px;
+  color: #3286a0;
+  font-size: larger;
+  text-decoration: underline #ff8066;
+}
+
+main section .head .view-more a {
+  padding: 5px;
+  color: #ff8066;
+  font-weight: bold;
+  text-decoration: none;
+}
+main section .head .view-more a::after {
+  content: ">";
+  padding: 0 3px;
+  font-weight: bold;
+}
+main section .head .view-more a:hover {
+  text-decoration: underline #3286a0;
+}
+
+/* Style the movie card */
+main .main-section .movies-cards {
+  margin: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+  transition-delay: 0.3s;
+  transition: 0.5s ease-out;
+}
+main .main-section .movies-cards article a {
+  justify-self: start;
+  width: 100%;
+  height: 300px;
+  text-decoration: none;
+  color: #daebf2;
+}
+main .main-section .movies-cards article:hover .movie-info {
+  transform: translateY(0%);
+}
+main .main-section .movies-cards article img {
+  filter: brightness(1.1);
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+main .main-section .movies-cards article h4 {
+  position: absolute;
+  top: 0;
+  padding: 4px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+main .main-section .movies-cards article {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+main .main-section .movies-cards article .movie-info {
+  position: absolute;
+  bottom: 3px;
+  background-color: #000000ae;
+  text-align: center;
+  height: 90%;
+  width: 85%;
+  color: #daebf2;
+  display: grid;
+  padding: 10px 0;
+  text-transform: capitalize;
+  font-weight: lighter;
+  justify-content: center;
+  transition: 0.5s;
+  transform: translateY(105%);
+}
+main .main-section .movies-cards article .movie-info .txt {
+  color: #e36248;
+}
+main .main-section .movies-cards article .movie-info a {
+  color: #3286a0;
+  border-bottom: 1px solid #daebf2;
+}
+main .main-section .movies-cards article .movie-info a:hover {
+  color: #559eb5;
+}
+main .main-section .movies-cards article .movie-info .btn {
+  width: 80%;
+  height: 30px;
+  background-color: #ff8066;
+  align-self: end;
+  justify-self: center;
+  text-align: center;
+  padding: 5px;
+  color: #daebf2;
+  border: none;
+  transition: 0.4s;
+}
+main .main-section .movies-cards article .movie-info .btn:hover {
+  background-color: #fb9480;
+  color: #daebf2;
+  transform: scale(1.1);
+}
+
+/* Style footer */
+footer .top {
+  z-index: 9999;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 9px;
+  background-color: #e36248;
+  color: #daebf2;
+  border: 2px solid #daebf2;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transition: 0.5s;
+  cursor: pointer;
+  text-decoration: none;
+}
+footer {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 2px solid #3286a0;
+  margin-top: 100px;
+  background-color: #3286a0;
+}
+footer .footer-logo {
+  width: 15%;
+}
+footer .social-media {
+  height: 5em;
+  color: #daebf2;
+  padding: 5px;
+}
+footer .social-media h4 {
+  padding: 10px 4px;
+  text-align: center;
+}
+footer .social-media a {
+  padding: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+footer .links ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+footer .links ul a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #daebf2;
+  transition: 0.4s;
+}
+footer .links ul a:hover {
+  text-decoration: underline;
+  color: #e36248;
+}
+
+footer .download-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  color: #fb9480;
+}
+footer .download-links h4 {
+  padding: 5px;
+  margin: 5px 0;
+}
+footer .copyright {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+
+  padding: 5px;
+  background-color: #daebf2;
+}
+footer .copyright p {
+  padding: 6px;
+  color: #3286a0;
+  font-weight: 600;
+}
+footer .copyright ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+}
+footer .copyright ul a {
+  text-decoration: none;
+  color: #e36248;
+}
+footer .copyright ul a:hover {
+  text-decoration: underline #e36248;
+}
+
+/* Movies Listing  */
+.hero-section {
+  background-image: linear-gradient(
+      to right,
+      #01022de5 30%,
+      rgba(0, 0, 0, 0.396)
+    ),
+    url(../sources/images/bg.jpg);
+  width: 100%;
+  height: 80vh;
+  transition-duration: 4s;
+}
+.rating {
+  color: gold;
+}
+.rating::before {
+  content: "\01F525";
+}
+.hero-section:hover {
+  background-image: linear-gradient(to right, #01022de5 30%, transparent),
+    url(../sources/images/bg.jpg);
+}
+.hero-section .content {
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: flex-start;
+  height: 80vh;
+  margin-bottom: 120px;
+  width: 60%;
+}
+.hero-section .content h1 {
+  background-color: rgba(255, 255, 255);
+  padding: 10px;
+  color: blueviolet;
+  text-transform: uppercase;
+  border: 2px solid blueviolet;
+  align-self: center;
+}
+.hero-section .content p {
+  font-size: 20px;
+  font-weight: 200;
+  text-transform: capitalize;
+  padding: 10px;
+  text-align: center;
+}
+.hero-section .content .btn-stream {
+  padding: 6px;
+  width: 200px;
+  align-self: center;
+  transition: 0.4s;
+}
+.hero-section .content .btn-stream:hover {
+  color: #3286a0;
+  transform: scale(1.1);
+}
+
+/* Styke Contact Us Page */
+.contact-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+}
+.intro {
+  margin: 10px 0;
+  width: 90%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: #daebf2;
+  box-shadow: 4px 4px 18px rgba(0, 0, 0, 0.4);
+  padding: 15px;
+}
+.intro h2 {
+  font-size: 3em;
+  padding: 10px;
+  margin-bottom: 22px;
+  color: #3286a0;
+}
+.intro h2 .hi {
+  color: #e36248;
+}
+
+.intro p {
+  font-weight: lighter;
+  font-size: 20px;
+  text-align: center;
+  color: #6d44b0;
+  text-transform: capitalize;
+}
+.intro .follow {
+  text-transform: uppercase;
+  color: #e36248;
+  font-weight: 800;
+  font-size: 18px;
+}
+.intro .social {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 10%;
+}
+.intro .social a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #3286a0;
+  padding: 8px 5px;
+  border: 2px solid;
+  transition: 0.4s;
+}
+.intro .social a:hover {
+  color: #daebf2;
+  border: 2px solid;
+  background-color: #3286a0;
+}
+
+.contact {
+  border: 2px solid #3286a0;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contact .contact-form table {
+  width: 110%;
+}
+.contact .contact-form table td {
+  position: relative;
+}
+.contact .contact-form table td input,
+.contact .contact-form table td textarea {
+  width: 100%;
+  align-self: center;
+  resize: vertical;
+}
+.contact .contact-form table td .msg {
+  position: absolute;
+  top: 0;
+}
+.contact .contact-form {
+  color: #3286a0;
+  font-weight: 600;
+}
+.contact .contact-form .btn-send {
+  width: 100%;
+  margin: 5px 0;
+  padding: 5px;
+  color: #daebf2;
+  background-color: #e36248;
+  border: 1px solid #daebf2;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.contact .contact-form .btn-send:hover {
+  color: #ffffff;
+  background-color: #ca533b;
+  transform: scale(1.123);
+}
